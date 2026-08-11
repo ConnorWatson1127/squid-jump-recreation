@@ -1,0 +1,29 @@
+[gd_resource type="TileSet" format=3 uid="uid://d3xnkdq8as2q4"]
+
+[ext_resource type="Texture2D" uid="uid://bwrgdtmb6gil" path="res://sprites/terrain.png" id="2_02c43"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e127x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e3020"]
+friction = 0.01
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwgxs"]
+texture = ExtResource("2_02c43")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+0:0/0/physics_layer_0/polygon_0/one_way = true
+1:0/0 = 0
+1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0/physics_layer_1/polygon_0/one_way = true
+1:0/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_e127x")
+physics_layer_1/collision_layer = 1
+physics_layer_1/physics_material = SubResource("PhysicsMaterial_e3020")
+custom_data_layer_0/name = "isIce"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_rwgxs")

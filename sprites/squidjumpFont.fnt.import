@@ -1,0 +1,17 @@
+[remap]
+
+importer="font_data_bmfont"
+type="FontFile"
+uid="uid://u50fe2crncwj"
+path="res://.godot/imported/squidjumpFont.fnt-68f426f6945153c6d23a0d68324213b0.fontdata"
+
+[deps]
+
+source_file="res://sprites/squidjumpFont.fnt"
+dest_files=["res://.godot/imported/squidjumpFont.fnt-68f426f6945153c6d23a0d68324213b0.fontdata"]
+
+[params]
+
+fallbacks=[]
+compress=true
+scaling_mode=2

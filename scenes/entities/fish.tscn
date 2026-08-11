@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://benndtrn7ltjo"]
+
+[ext_resource type="Script" uid="uid://mq7qkavhwim1" path="res://scripts/fish.gd" id="1_gk455"]
+[ext_resource type="Texture2D" uid="uid://cski20v1qa0j4" path="res://sprites/cheepcheep.png" id="1_w8q0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 15)
+
+[node name="fish" type="Area2D" unique_id=1132863805]
+script = ExtResource("1_gk455")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87986836]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1929134029]
+position = Vector2(0, -1)
+texture = ExtResource("1_w8q0n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

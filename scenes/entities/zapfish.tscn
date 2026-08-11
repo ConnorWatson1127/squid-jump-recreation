@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://ckiacofftwilg"]
+
+[ext_resource type="Texture2D" uid="uid://cr545olgiuai2" path="res://sprites/zapfish.png" id="1_x3alu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 15)
+
+[node name="zapfish" type="Area2D" unique_id=2001664318]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=104730283]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1666146007]
+texture = ExtResource("1_x3alu")

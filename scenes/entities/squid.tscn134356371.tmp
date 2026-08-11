@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://cffueggeg463q"]
+
+[ext_resource type="Script" uid="uid://41um5wgv6mt5" path="res://scripts/squidController.gd" id="1_2kr25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(15, 15)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_opml0"]
+load_path = "res://.godot/imported/squidSprite.png-78261ac3b2e12f98fabf08f54549ac9b.ctex"
+
+[sub_resource type="Animation" id="Animation_jnbou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xaj30"]
+resource_name = "charge"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 6]
+}
+
+[sub_resource type="Animation" id="Animation_x7qcf"]
+resource_name = "chargeFull"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_5egnv"]
+resource_name = "idle"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_go5yd"]
+_data = {
+&"RESET": SubResource("Animation_jnbou"),
+&"charge": SubResource("Animation_xaj30"),
+&"chargeFull": SubResource("Animation_x7qcf"),
+&"idle": SubResource("Animation_5egnv")
+}
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_57qmd"]
+
+[node name="squid" type="CharacterBody2D" unique_id=1208699245]
+script = ExtResource("1_2kr25")
+jumpVelocity = 250.0
+gravity = null
+maxHAirSpeed = null
+
+[node name="groundCollision" type="CollisionShape2D" parent="." unique_id=142897577]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1217223832]
+unique_name_in_owner = true
+offset = Vector2(0, -60)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_vertical_enabled = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D" unique_id=1558394524]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2134145466]
+position = Vector2(-0.5, -0.5)
+texture = SubResource("CompressedTexture2D_opml0")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=757839991]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_go5yd")
+
+[node name="PlayerSFX" type="AudioStreamPlayer2D" parent="." unique_id=1734752254]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamWAV_57qmd")
+playback_type = 1
+
+[node name="floorRayCast" type="RayCast2D" parent="." unique_id=242014156]
+target_position = Vector2(0, 8)

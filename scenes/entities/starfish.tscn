@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://clnaevpitp5lx"]
+
+[ext_resource type="Texture2D" uid="uid://c0afnt7j8ge3i" path="res://sprites/starfish.png" id="1_0jf0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(16, 15)
+
+[node name="starfish" type="Area2D" unique_id=1132863805]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87986836]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1929134029]
+texture = ExtResource("1_0jf0i")
